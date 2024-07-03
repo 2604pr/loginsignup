@@ -6,9 +6,15 @@ const FormDataModel = require ('./models/FormData');
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors(
+    {
+        origin:["https://loginsignup-rho.vercel.app/"],
+        methods: ["POST" , "GET"],
+        credentials: true
+    }
+    ));
 
-mongoose.connect('mongodb://127.0.0.1:27017/practice_mern');
+mongoose.connect('mongodb+srv://pranshupatel833:Pranshu26@cluster0.jvlxhbb.mongodb.net/NodeAPI?retryWrites=true&w=majority&appName=Cluster0');
 
 app.post('/register', (req, res)=>{
     // To post / insert data into database
